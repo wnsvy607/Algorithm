@@ -30,7 +30,7 @@ class Solution {
         pq.add(new Node(start, 0));
         
         
-        List[] nodes = new List[n + 1];
+        List<Node>[] nodes = new List[n + 1];
         
         for(var fare : fares) {
             int a = fare[0]; int b = fare[1]; int cost = fare[2];
@@ -48,8 +48,7 @@ class Solution {
             Node node = pq.poll();
             
             
-            for(var obj : nodes[node.idx]) {
-                Node next = (Node) obj;
+            for(var next : nodes[node.idx]) {
                 
                 if(dist[next.idx] <= dist[node.idx] + next.dist) continue;
                 
